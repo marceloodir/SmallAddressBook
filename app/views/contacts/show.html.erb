@@ -1,8 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Foto:</strong>
-  <%= image_tag @contact.avatar.url(:thumb) %>
+  <%= image_tag @contact.avatar.url(:medium), class: "img-rounded" if @contact.avatar.url.present?%>
 </p>
 
 <p>
@@ -21,5 +20,5 @@
 </p>
 
 
-<%= link_to 'Edit', edit_contact_path(@contact) %> |
-<%= link_to 'Back', contacts_path %>
+<%= link_to 'Editar', edit_contact_path(@contact), class: "btn btn-default" %>
+<%= link_to 'Voltar', contacts_path, class: "btn btn-default" %>

@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Contacts</h1>
+<h1>Meus Contatos</h1>
 
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
       <th>Foto</th>
@@ -16,13 +16,13 @@
   <tbody>
     <% @contacts.each do |contact| %>
       <tr>
-        <td><%= image_tag contact.avatar.url(:icon) %></td>
+        <td><%= image_tag contact.avatar.url(:thumb), class: "img-circle" if contact.avatar.url.present? %></td>
         <td><%= contact.nome %></td>
         <td><%= contact.email %></td>
         <td><%= contact.telefone %></td>
-        <td><%= link_to 'Show', contact %></td>
-        <td><%= link_to 'Edit', edit_contact_path(contact) %></td>
-        <td><%= link_to 'Destroy', contact, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Detalhes', contact, class: "btn btn-default btn-sm" %></td>
+        <td><%= link_to 'Editar', edit_contact_path(contact), class: "btn btn-default btn-sm" %></td>
+        <td><%= link_to 'Apagar', contact, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default btn-sm" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +30,4 @@
 
 <br>
 
-<%= link_to 'New Contact', new_contact_path %>
+<%= link_to 'Novo Contato', new_contact_path, class: 'btn btn-md btn-default', role: 'button' %>

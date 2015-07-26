@@ -1,5 +1,6 @@
-<h1>New User</h1>
+<h1 class="cadastro">Novo Usuário</h1>
+<div class="cadastro">
+  <%= render 'form' %>
+</div>
+<%= link_to 'Voltar', index_path, class: "btn btn-default cadastro" %>
 
-<%= render 'form' %>
-
-<%= link_to 'Back', index_path %>

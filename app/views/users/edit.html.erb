@@ -1,6 +1,10 @@
-<h1>Editing User</h1>
+<h1 class="cadastro">Editando Perfil</h1>
+<div class="cadastro">
+  <%= render 'form' %>
+</div>
 
-<%= render 'form' %>
+<div class="cadastro">
+  <%= link_to 'Voltar', contacts_path, class: "btn btn-default" %>
+  <%= link_to 'Apagar', @user, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" %>
+</div>
 
-<%= link_to 'Apagar', @user, method: :delete, data: { confirm: 'Are you sure?' } %> |
-<%= link_to 'Voltar', contacts_path %>

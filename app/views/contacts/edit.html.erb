@@ -1,6 +1,9 @@
-<h1>Editing Contact</h1>
+<h1 class="cadastro">Editando Contato</h1>
+<div class="cadastro">
+  <%= render 'form' %>
+</div>
+<div class="cadastro">
+  <%= link_to 'Detalhes', @contact, class: "btn btn-default" %>
+  <%= link_to 'Voltar', contacts_path, class: "btn btn-default" %>
+</div>
 
-<%= render 'form' %>
-
-<%= link_to 'Show', @contact %> |
-<%= link_to 'Back', contacts_path %>

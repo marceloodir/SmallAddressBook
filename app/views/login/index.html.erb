@@ -1,18 +1,24 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Sistema de Agenda de contatos</h1>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Faça o Login</h3>
+  </div>
+  <div class="panel-body">
+    <%= form_tag("login/auth", method: "post") do %>
+        <div class="input-group">
+          <span class="input-group-addon" id="sizing-addon2">@</span>
+          <%= text_field_tag :email, nil, class: "form-control", placeholder: "Email", :'aria-describedby' => "sizing-addon2" %>
+        </div>
+        <div class="input-group">
+          <span class="input-group-addon" id="sizing-addon2">X</span>
+          <%= password_field_tag :senha, nil, class: "form-control", placeholder: "Senha", :'aria-describedby' => "sizing-addon2" %>
+        </div>
+        <div class="login" >
+          <%= submit_tag "Efetuar Login", class: "btn btn-default" %>
+        </div>
+    <% end %>
+  </div>
+</div>
 
-<h2> Faça o Login</h2> <br/>
 
-<%= form_tag("login/auth", method: "post") do %>
-  <%= label_tag(:email, "E-mail:") %>
-  <%= text_field_tag(:email) %> <br/> <br/>
-  <%= label_tag(:senha, "Senha:") %> 
-  <%= password_field_tag(:senha) %> <br/> <br/>
-  <%= submit_tag("Efetuar Login") %> 
-  
-<% end %>
-<%= button_to "Cadastrar-se", new_user_path, method: 'get' %>
-
-
-<%link_to "Efetue o seu cadastro, new_user_path" %>

@@ -13,3 +13,23 @@
  *= require_tree .
  *= require_self
  */
+
+body { padding-top: 70px; }
+
+.cadastro {
+    margin-right: 30%;
+    margin-left: 30%;
+    margin-bottom: 20px;
+}
+
+.titulo {
+    width: 100px;
+}
+
+.table tbody>tr>td {
+    vertical-align: middle;
+}
+
+.imagem {
+    margin-left: 50%;
+}

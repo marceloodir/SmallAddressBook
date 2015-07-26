@@ -2,17 +2,50 @@
 <html>
 <head>
   <title>Agenda</title>
+
+  <!-- Jquery -->
+  <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-<% if session[:userid] %>
-    <p>Olá, <%= image_tag @user.avatar.url(:icon) %> - <%=link_to @user.name, edit_user_path(@user)  %>
-      - <%= link_to "Sign_out", logout_path %></p>
-<% end %>
-
-<%= yield %>
-
+<div class="container">
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container topo">
+      <img alt="Brand" src="/assets/agenda.png"  class="navbar-brand img-circle" />
+      <h3 class="navbar-text navbar-left">Rails Address Book</h3>
+      <% if session[:userid] %>
+          <ul class="nav navbar-nav navbar-right">
+            <li class="">
+              <%= image_tag @user.avatar.url(:icon), class: "navbar-brand" if @user.avatar.url.present? %>
+            </li>
+            <li class="">
+              <%= link_to @user.name, edit_user_path(@user) %>
+            </li>
+            <li class="">
+              <%= link_to "Logout", logout_path %>
+            </li>
+          </ul>
+      <% else %>
+          <div class="nav navbar-nav navbar-right">
+            <%= link_to "Cadastrar-se", new_user_path, class: "btn btn-default navbar-btn"  %>
+          </div>
+      <% end %>
+    </div>
+  </nav>
+  <%= yield %>
+</div>
 </body>
 </html>
