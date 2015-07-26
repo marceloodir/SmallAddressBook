@@ -1,10 +1,12 @@
 class UsersController < ApplicationController
+  before_action :authenticate, only: [:index, :show, :edit, :update, :destroy]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /users
   # GET /users.json
   def index
     @users = User.all
+    @user = current_user
   end
 
   # GET /users/1
@@ -65,10 +67,13 @@ class UsersController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_user
       @user = User.find(params[:id])
+      unless @user == current_user
+        redirect_to users_url, notice: 'Você não tem permissão para isso.'
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :email, :senha)
+      params.require(:user).permit(:name, :email, :senha, :avatar)
     end
 end

@@ -1,31 +1,33 @@
-<%= form_for(@user, :html => { :multipart => true }) do |f| %>
-  <% if @user.errors.any? %>
+<%= form_for(@contact) do |f| %>
+  <% if @contact.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+      <h2><%= pluralize(@contact.errors.count, "error") %> prohibited this contact from being saved:</h2>
 
       <ul>
-      <% @user.errors.full_messages.each do |message| %>
+      <% @contact.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
+
     <div class="field">
-      <%= image_tag @user.avatar.url(:thumb) %>
+      <%= image_tag @contact.avatar.url(:thumb) %>
       <label>Foto:</label>
       <%= f.file_field :avatar %>
     </div>
+
   <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.label :nome %><br>
+    <%= f.text_field :nome %>
   </div>
   <div class="field">
     <%= f.label :email %><br>
     <%= f.text_field :email %>
   </div>
   <div class="field">
-    <%= f.label :senha %><br>
-    <%= f.text_field :senha %>
+    <%= f.label :telefone %><br>
+    <%= f.text_field :telefone %>
   </div>
   <div class="actions">
     <%= f.submit %>

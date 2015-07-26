@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
+  resources :contacts
   get 'login/index'
   
   post 'login/auth'
+  get 'login/logout', as: 'logout'
 
   root 'login#index', as: 'index'
 

@@ -7,6 +7,10 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<% if session[:userid] %>
+    <p>Olá, <%= image_tag @user.avatar.url(:icon) %> - <%=link_to @user.name, edit_user_path(@user)  %>
+      - <%= link_to "Sign_out", logout_path %></p>
+<% end %>
 
 <%= yield %>
 
