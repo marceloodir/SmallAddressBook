@@ -68,7 +68,7 @@ class UsersController < ApplicationController
     def set_user
       @user = User.find(params[:id])
       unless @user == current_user
-        redirect_to users_url, notice: 'Você não tem permissão para isso.'
+        redirect_to contacts_path, notice: 'Você não tem permissão para isso.'
       end
     end
 
