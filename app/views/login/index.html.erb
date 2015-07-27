@@ -8,7 +8,7 @@
     <%= form_tag("login/auth", method: "post") do %>
         <div class="input-group">
           <span class="input-group-addon" id="sizing-addon2">@</span>
-          <%= text_field_tag :email, nil, class: "form-control", placeholder: "Email", :'aria-describedby' => "sizing-addon2" %>
+          <%= email_field_tag :email, nil, class: "form-control", placeholder: "Email", :'aria-describedby' => "sizing-addon2" %>
         </div>
         <div class="input-group">
           <span class="input-group-addon" id="sizing-addon2">X</span>
